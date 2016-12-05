@@ -28,14 +28,12 @@ if (typeof subsFile !== 'string') {
   return
 }
 
-const subsFileName = getFileName(subsFile)
-
 if (typeof outputFile !== 'string') {
   console.error(
 `Specify an output file for the translated subs to go.
 
     Call this file like this:
-    node ${thisFileName} ${subsFileName} <output-file>
+    node ${thisFileName} ${subsFile} <output-file>
 
     Where <output-file> is the name of the file that you want the translated output to be saved.
 `
@@ -43,7 +41,7 @@ if (typeof outputFile !== 'string') {
   return
 }
 
-const translatedSubs = translateSubs(fs.readFileSync(subsFile))
-fs.writeFileSync(JSON.stringify(translatedSubs), outputFile)
+const translatedSubs = translateSubs(require(subsFile))
+fs.writeFileSync(outputFile, JSON.stringify(translatedSubs))
 
-console.log(`Successfully translated subs to ${outputFileName}.`)
+console.log(`Successfully translated subs to ${outputFile}.`)

@@ -3,7 +3,7 @@ const dictionary = require('./dictionary')
 // type Translation = {word : String, translation : String | [String]}
 
 // translateText : String -> [Translation | String]
-const translateText = text => {
+const translateText = (text) => {
   const translations = []
 
   for (let start = 0; start < text.length;) {
