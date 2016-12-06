@@ -42,6 +42,6 @@ if (typeof outputFile !== 'string') {
 }
 
 const translatedSubs = translateSubs(require(subsFile))
-fs.writeFileSync(outputFile, JSON.stringify(translatedSubs))
+fs.writeFileSync(outputFile, `modules.exports = ${JSON.stringify(translatedSubs)}`)
 
 console.log(`Successfully translated subs to ${outputFile}.`)
